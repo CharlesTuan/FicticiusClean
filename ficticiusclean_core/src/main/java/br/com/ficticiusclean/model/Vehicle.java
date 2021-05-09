@@ -25,6 +25,7 @@ public class Vehicle {
 	@Column(length = 40, nullable = false)
 	private String model;
 
+	// Marca do carro.
 	@Column(length = 20, nullable = false)
 	private String brand;
 
@@ -32,15 +33,19 @@ public class Vehicle {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date manufacturingDate;
 
+	// Consumo medio cidade.
 	@Column(nullable = false)
 	private Double cityAverageConsumption;
 
+	// Consumo medio rodovia, chamado de "street" por facilidade de leitura.
 	@Column(nullable = false)
 	private Double streetAverageConsumption;
 
+	// Gasto futuro de combustivel.
 	@Column(nullable = true, columnDefinition = "double default 0")
 	private Double usedFuel  = 0.0;
 
+	// Gasto futuro com combustivel.
 	@Column(nullable = true, columnDefinition = "double default 0")
 	private Double spentFuel  = 0.0;
 

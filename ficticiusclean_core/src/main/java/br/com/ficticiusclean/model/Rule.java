@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+// Entidade da regra.
 @Entity
 public class Rule {
 
@@ -13,12 +14,16 @@ public class Rule {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
+	// Preço da gasolina.
 	@Column(nullable = false)
 	private Double gasPrice;
 
+	// Distância rodada na cidade.
 	@Column(nullable = false)
 	private Double cityAverageConsumption;
 
+	// Distancia rodada na rodovia(chamada de "street" por questoes de complexidade de nome,
+	// pois highway ficaria um pouco estranho a leitura.
 	@Column(nullable = false)
 	private Double streetAverageConsumption;
 
