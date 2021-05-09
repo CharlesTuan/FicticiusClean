@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head th:include="layout :: htmlhead"></head>
+
+<body>
+    <div class="container">
+        <nav th:replace="layout :: menu">(menu)</nav>
+        <h1>Carros</h1>
+        <a href="form.html" th:href="@{/vehicle/new}" class="btn btn-outline-dark" role="button">Novo carro</a>
+        <table class="table">
+            <thead>
+                <th>Nome</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Data de fabricação</th>
+                <th>Consumo na cidade</th>
+                <th>Consumo na estrada</th>
+                <th></th>
+            </thead>
+            <tbody>
+                <tr th:each="vehicle : ${vehicleList}">
+                    <td th:text="${vehicle.name}"></td>
+                    <td th:text="${vehicle.brand}"></td>
+                    <td th:text="${vehicle.model}"></td>
+                    <td th:text="${vehicle.manufacturingDate}"></td>
+                    <td th:text="${vehicle.cityAverageConsumption}"></td>
+                    <td th:text="${vehicle.streetAverageConsumption}"></td>
+                    <td><a th:href="@{'/vehicle/change/' + ${vehicle.id}}" class="btn btn-outline-primary">Alterar</a></td>
+                    <td><a th:href="@{'/vehicle/delete/' + ${vehicle.id}}" class="btn btn-outline-danger">Deletar</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div th:include="layout :: footer" id="footer">(footer)</div>
+</body>
+
+</html>

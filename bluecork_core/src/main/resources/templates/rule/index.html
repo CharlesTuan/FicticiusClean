@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head th:include="layout :: htmlhead"></head>
+
+<body>
+    <div class="container">
+        <nav th:replace="layout :: menu">(menu)</nav>
+        <h1>Analítico</h1>
+        <a href="form.html" th:href="@{/rule/new}" class="btn btn-outline-dark" role="button">Nova Regra</a>
+        <table class="table">
+            <thead>
+                <th>Nome</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Data de fabricação</th>
+                <th>Quantidade de combustível gasto</th>
+                <th>Valor total gasto com combustível</th>
+            </thead>
+            <tbody>
+                <tr th:each="vehicle : ${vehicleList}">
+                    <td th:text="${vehicle.name}"></td>
+                    <td th:text="${vehicle.brand}"></td>
+                    <td th:text="${vehicle.model}"></td>
+                    <td th:text="${vehicle.manufacturingDate}"></td>
+                    <td th:text="${vehicle.usedFuel}"></td>
+                    <td th:text="${vehicle.spentFuel}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div th:include="layout :: footer" id="footer">(footer)</div>
+</body>
+
+</html>
